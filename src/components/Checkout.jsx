@@ -4,7 +4,7 @@ import useOrders from "../hooks/useOrders";
 import usePrototypes from "../hooks/usePrototypes";
 import { Link } from "react-router-dom";
 
-export default function Orders() {
+export default function CheckOut() {
   const orders = useOrders();
   const prototypes = usePrototypes();
   const { remove, removeAll } = useActions();
@@ -32,6 +32,11 @@ export default function Orders() {
 
   return (
     <aside>
+      <header>
+        <div className="header__container">
+          <div className="title">CheckOut</div>
+        </div>
+      </header>
       <div className="order">
         <div className="body">
           {orders.map((order) => {
@@ -73,9 +78,15 @@ export default function Orders() {
           </div>
           <button
             className="btn btn--secondary"
-            style={{ width: "100%", marginTop: 10 }}
+            style={{ width: "50%", marginTop: 10 }}
           >
-            <Link to="/checkout">Checkout</Link>
+            <Link to="/checkout">Payment</Link>
+          </button>
+          <button
+            className="btn btn--secondary"
+            style={{ width: "50%", marginTop: 10 }}
+          >
+            <Link to="/">Cancel</Link>
           </button>
         </div>
       </div>
